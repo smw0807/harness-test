@@ -1,0 +1,26 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+# 신뢰한 프로젝트에서 적용한다. 모델·추론 수준·권한은 사용자 설정을 상속한다.
+web_search = "live"
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 4
+
+# .codex/agents/*.toml은 자동 발견된다. 별도 역할 등록은 필요하지 않다.
+# 첫 브라우저 작업에서 활성화: docs/setup.md 참고.
+[mcp_servers.playwright]
+command = "pnpm"
+args = [
+  "dlx",
+  "@playwright/mcp@0.0.85",
+  "--isolated",
+  "--output-dir",
+  ".local/browser",
+]
+enabled = false
+startup_timeout_sec = 60
+tool_timeout_sec = 90
+
+# Google Drive는 호스트의 인증된 커넥터를 사용한다.
+# 확인되지 않은 서버 URL이나 자격 증명을 이 파일에 추가하지 않는다.

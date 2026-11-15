@@ -1,0 +1,15 @@
+# 개인 이력서, 공고 평가, 실행 기록, 브라우저 상태
+/.local/
+
+# 로컬 자격 증명과 환경 설정
+.env
+.env.*
+!.env.example
+/.codex/auth.json
+
+# 향후 TypeScript CLI 빌드 결과
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.DS_Store
